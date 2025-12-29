@@ -1,3 +1,4 @@
+import unittest
 #Exercise 1
 
 def integerConverter(num):
@@ -27,4 +28,23 @@ if rec is not None:
     print(f"Reciprocal is {rec}")
 else:
     print("Reciprocal is undefined (division by zero).")
+
+#Exercise 2
+def add(a, b):
+    return a + b + 1 # I have added 1 intentionally for unit tests
+
+class TestAdd(unittest.TestCase):
+
+    def test_two_positive(self):
+        self.assertEqual(add(2,3),5)
+
+    def test_negative_positive(self):
+        self.assertEqual(add(-2,-3),-5)
+
+    def test_two_zeros(self):
+            self.assertEqual(add(0, 0), 0)
+
+    def test_two_float(self):
+        self.assertAlmostEqual(add(2.55,3.55),6.10,places=2)
+
 
